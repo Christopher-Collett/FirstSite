@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 
 app = Flask(__name__)
@@ -6,7 +6,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return '<h1>Hello, Rebekah!</h1><p>I made this.</p>'
+    return render_template('home.html')
+
+
+@app.route('/math')
+def math():
+    return render_template('math.html')
 
 
 if __name__ == '__main__':
