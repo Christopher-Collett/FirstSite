@@ -1,9 +1,42 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>Math Page</title>
+  <style>
+.answer-box {
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+.correct {
+  background-color: lightgreen;
+}
+.incorrect {
+  background-color: lightcoral;
+}
+  </style>
+</head>
 <body>
   <h1>Math Page</h1>
   <p>Welcome!</p>
   <p>Go back to the <a href="{{ url_for('home') }}">Home</a> page.</p>
+  <p/>
+  <p>1 + 2 = <input type="number" id="answer" class="answer-box" placeholder="?"/></p>
+  <button onclick="checkAnswer()">Check</button>
+
+  <script>
+    function checkAnswer() {
+      const answerBox = document.getElementById('answer'); 
+      const answer = answerBox.value;
+      if (answer == 3) {
+        answerBox.classList.remove('incorrect')
+        answerBox.classList.add('correct')
+      }
+      else {
+        answerBox.classList.remove('correct')
+        answerBox.classList.add('incorrect')
+      }
+    }
+  </script>
 </body>
 </html>
 
